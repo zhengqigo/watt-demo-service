@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: watt-demo-service
+  redis:
+    cluster:
+      connection-timeout: 1000
+      max-redirects: 3
+      so-timeout: 1000
+      max-attempts: 3
+      max-total: 20
+      max-idle: 3
+      max-wait-millis: 300
+      test-on-borrow: true
+      password: 0Y0j8Zeu8iis1qIYHJUoUy2OsUD3u57JGeKosvfRKFxm75hpLa
+      cluster-mode: false
+      viewable: true
+      host: 101.132.103.197
+      port: 7000
+      nodes:
+      - 172.16.12.39:7000
+      - 172.16.12.40:7001
+      - 172.16.12.41:7002
+      - 172.16.12.42:7003
+      - 172.16.12.43:7004
+      - 172.16.12.44:7005
+  druid:
+    default:
+      enable: true
+      initial-size: 5
+      max-active: 10
+      min-idle: 5
+      max-wait: 10
+      filters: stat
+      username: root
+      password: 12345678
+      default-auto-commit: true
+  mybatis:
+    configuration:
+      cache-enabled: true
+      local-cache-scope: session
+      lazy-loading-enabled: true
+      default-executor-type: simple
+      map-underscore-to-camel-case: true
+    nodes:
+      demo:
+        order: after
+        dialect: Mysql
+        base-package: cn.fuelteam.user.dao
+        mapper-package: mappers.user
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/demo?allowMultiQueries=true&useSSL=false
+      operation:
+        order: after
+        dialect: Mysql
+        base-package: cn.fuelteam.data.dao
+        mapper-package: mappers.data
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/operation?allowMultiQueries=true&useSSL=false
+  aop:
+    auto: true
+    proxy-target-class: true
+dubbo:
+  application:
+    name: watt-demo-service
+  protocol:
+    name: dubbo
+    port: 20881
+    serialization: hessian2
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+    file: /tmp/cache/${spring.application.name}.cache
