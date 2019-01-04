@@ -1,5 +1,7 @@
 package cn.fuelteam.user.client.impl;
 
+import javax.ws.rs.Path;
+
 import org.fuelteam.watt.lucky.utils.BeanMapper;
 import org.fuelteam.watt.result.Result;
 import org.fuelteam.watt.result.ResultCode;
@@ -12,7 +14,8 @@ import cn.fuelteam.user.dao.UserDao;
 import cn.fuelteam.user.domain.User;
 import cn.fuelteam.user.dto.UserDto;
 
-@Service(version = "1.0.0", timeout = 1000)
+@Service(version = "1.0.0", protocol = { "dubbo", "rest" }, registry = "${dubbo.registry.id}", timeout = 1000)
+@Path("user")
 public class UserClientImpl implements UserClient {
 
     @Autowired
