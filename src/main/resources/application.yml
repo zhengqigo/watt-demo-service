@@ -1,6 +1,8 @@
 spring:
   application:
     name: watt-demo-service
+  main:
+    web-application-type: none
   redis:
     cluster:
       connection-timeout: 1000
