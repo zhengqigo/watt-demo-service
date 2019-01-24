@@ -12,12 +12,16 @@ spring:
       max-total: 20
       max-idle: 3
       max-wait-millis: 300
+      test-on-return: false
+      test-on-create: false
+      test-while-idle: true
       test-on-borrow: true
       password: 0Y0j8Zeu8iis1qIYHJUoUy2OsUD3u57JGeKosvfRKFxm75hpLa
       cluster-mode: false
       viewable: true
       host: 101.132.103.197
       port: 7000
+      timeout: 1000
       nodes:
       - 172.16.12.39:7000
       - 172.16.12.40:7001
@@ -64,20 +68,11 @@ spring:
 dubbo:
   application:
     name: watt-demo-service
-  config:
-    multiple: true
-  protocols:
-    dubbo:
-      name: dubbo
-      port: 20881
-      status: server
-      serialization: hession2
-    rest:
-      server: jetty
-      name: rest
-      port: 8888
+  protocol:
+    name: dubbo
+    port: 20881
+    serialization: hessian2
   registry:
-    id: zk
-    protocol: zookeeper
-    address: 127.0.0.1:2181
+    protocol: nacos
+    address: 127.0.0.1:8848
     file: /tmp/cache/${spring.application.name}.cache

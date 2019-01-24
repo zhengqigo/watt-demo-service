@@ -20,7 +20,6 @@ import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 public class DemoServiceApplication {
 
     public static void main(String[] args) throws IOException {
-        // new EmbeddedZooKeeper(2181, false).start();
         SpringApplication app = new SpringApplication(DemoServiceApplication.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
