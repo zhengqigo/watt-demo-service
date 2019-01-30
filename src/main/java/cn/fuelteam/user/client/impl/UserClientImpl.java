@@ -1,11 +1,10 @@
 package cn.fuelteam.user.client.impl;
 
+import org.apache.dubbo.config.annotation.Service;
 import org.fuelteam.watt.lucky.utils.BeanMapper;
 import org.fuelteam.watt.result.Result;
 import org.fuelteam.watt.result.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.alibaba.dubbo.config.annotation.Service;
 
 import cn.fuelteam.user.client.UserClient;
 import cn.fuelteam.user.dao.UserDao;

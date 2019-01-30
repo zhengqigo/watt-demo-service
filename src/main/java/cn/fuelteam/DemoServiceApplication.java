@@ -2,6 +2,7 @@ package cn.fuelteam;
 
 import java.io.IOException;
 
+import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,8 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.Ordered;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 
 @EnableAutoConfiguration
 @EnableAspectJAutoProxy
