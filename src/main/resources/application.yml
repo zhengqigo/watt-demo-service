@@ -1,0 +1,51 @@
+spring:
+  main:
+    web-application-type: none
+    allow-bean-definition-overriding: true
+  druid:
+    default:
+      enable: true
+      initial-size: 5
+      max-active: 10
+      min-idle: 5
+      max-wait: 10
+      filters: stat
+      username: root
+      password: 12345678
+      default-auto-commit: true
+  mybatis:
+    configuration:
+      cache-enabled: true
+      local-cache-scope: session
+      lazy-loading-enabled: true
+      default-executor-type: simple
+      map-underscore-to-camel-case: true
+    nodes:
+      demo:
+        order: after
+        dialect: Mysql
+        base-package: cn.fuelteam.user.dao
+        mapper-package: mappers.user
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/demo?allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+      operation:
+        order: after
+        dialect: Mysql
+        base-package: cn.fuelteam.data.dao
+        mapper-package: mappers.data
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/operation?allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+  aop:
+    auto: true
+    proxy-target-class: true
+dubbo:
+  application:
+    name: watt-demo-service
+  protocol:
+    name: dubbo
+    port: 20881
+    serialization: hessian2
+  registry:
+    protocol: nacos
+    address: 127.0.0.1:8848
+    file: /tmp/cache/${spring.application.name}.cache

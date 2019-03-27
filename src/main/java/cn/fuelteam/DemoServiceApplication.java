@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAspectJAutoProxy
 @DubboComponentScan(value = "cn.fuelteam")
 @EnableTransactionManagement(proxyTargetClass = true, order = Ordered.HIGHEST_PRECEDENCE)
-@SpringBootApplication(scanBasePackages = { "cn.fuelteam.user", "cn.fuelteam.data", "org.fuelteam" })
+@SpringBootApplication(scanBasePackages = { "cn.fuelteam.user", "cn.fuelteam.data" })
 public class DemoServiceApplication {
 
     public static void main(String[] args) throws IOException {
