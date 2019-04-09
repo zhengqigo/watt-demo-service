@@ -1,7 +1,6 @@
 spring:
   main:
     web-application-type: none
-    allow-bean-definition-overriding: true
   druid:
     default:
       enable: true
